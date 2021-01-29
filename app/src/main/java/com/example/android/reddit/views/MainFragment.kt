@@ -1,12 +1,13 @@
 package com.example.android.reddit.views
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.android.reddit.R
+import androidx.fragment.app.Fragment
+import com.example.android.reddit.databinding.MainFragmentBinding
+import org.koin.android.ext.android.inject
+import timber.log.Timber
 
 class MainFragment : Fragment() {
 
@@ -14,18 +15,32 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel by inject<MainViewModel>()
+
+    private var bindingImpl: MainFragmentBinding? = null
+    private val binding get() = bindingImpl!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+    ): View {
+        bindingImpl = MainFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.getRedditTopBtn.setOnClickListener {
+            viewModel.getRedditTop()
+        }
+        viewModel.redditTopLiveData.observe(viewLifecycleOwner) {
+            //todo
+        }
     }
 
 }
