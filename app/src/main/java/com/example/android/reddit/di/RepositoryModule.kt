@@ -7,7 +7,7 @@ import org.koin.dsl.module.module
 val repositoryModule = module {
 
     fun provideCountryRepository(api: RedditApi): RepositoryImpl {
-        return RepositoryImpl(api)
+        return RepositoryImpl(api,get())
     }
     single { provideCountryRepository(get()) }
 
