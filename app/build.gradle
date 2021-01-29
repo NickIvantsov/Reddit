@@ -82,4 +82,10 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:2.3.3"
+
+
+    // for room
+    implementation 'androidx.room:room-runtime:2.2.6'
+    annotationProcessor 'androidx.room:room-compiler:2.2.6'
+    kapt 'androidx.room:room-compiler:2.2.6'
 }
