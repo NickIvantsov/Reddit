@@ -3,7 +3,6 @@ package com.example.android.reddit.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.android.reddit.db.converters.ChildrenConverter
 import com.example.android.reddit.db.converters.Converters
 import com.example.android.reddit.db.model.RedditTop
 
