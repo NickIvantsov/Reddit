@@ -1,7 +1,8 @@
-package com.example.android.reddit
+package com.example.android.reddit.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.android.reddit.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

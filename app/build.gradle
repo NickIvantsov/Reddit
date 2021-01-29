@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -17,6 +18,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -42,4 +46,21 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.3.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+
+    //DI Koin
+    implementation 'org.koin:koin-android:1.0.2'
+    implementation 'org.koin:koin-android-viewmodel:1.0.2'
+    implementation 'org.koin:koin-androidx-scope:1.0.2'
+
+    //TIMBER for logging
+    implementation "com.jakewharton.timber:timber:4.7.1"
 }
