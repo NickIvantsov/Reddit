@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface RedditApi {
     @GET("/top.json")
-    suspend fun getAllCountries(): Response<RedditTop>
+    suspend fun getRedditTop(): Response<RedditTop>
 }
